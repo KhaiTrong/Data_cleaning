@@ -40,7 +40,7 @@ SELECT
 SUBSTRING(PropertyAddress, 1, CHARINDEX(',',PropertyAddress) -1) AS Address
 , SUBSTRING(PropertyAddress, CHARINDEX(',',PropertyAddress) +1, LEN(PropertyAddress)) AS Address
 FROM Porftolioproject..Sheet1$
------------------------------------------------
+
 ALTER TABLE Porftolioproject..Sheet1$
 ADD Property_split_address NVARCHAR(255)
 
@@ -56,7 +56,7 @@ SET Property_split_by_city = SUBSTRING(PropertyAddress, CHARINDEX(',',PropertyAd
 SELECT *
 FROM Porftolioproject..Sheet1$
 
--------------
+
 --4.Split owner address by delimeter [use PARSENAME]
 SELECT 
 PARSENAME(REPLACE(OwnerAddress, ',','.'), 3),
@@ -99,7 +99,7 @@ SET SoldAsVacant=
 		ELSE SoldAsVacant
 		END
 FROM Porftolioproject..Sheet1$
------------------------------------------------------
+
 --Dedup (picking out dups from CTE >> delete)
 WITH RowNumCTE AS (
 SELECT *, 
